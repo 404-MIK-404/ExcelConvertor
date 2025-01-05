@@ -1,0 +1,35 @@
+
+<h1>Тестовый проект для работы !</h1>
+
+<dx-data-grid
+  [dataSource]="dataSource"
+  [columns]="columns">
+</dx-data-grid>
+
+<dx-tab-panel [width]="'100%'" [selectedIndex]="selectedIndex"
+              (onSelectionChanged)="onTabChanged($event)">
+
+  <dxi-item title="Кассовый прогноз БП за год">
+    <div *dxTemplate>
+      <p>
+        Раздел Кассовый прогноз БП за год
+      </p>
+    </div>
+  </dxi-item>
+  <dxi-item title="Кассовый прогноз за год">
+    <div *dxTemplate>
+      <p>
+        Раздел Кассовый прогноз за год
+      </p>
+    </div>
+  </dxi-item>
+  <dxi-item title="Колледжи">
+    <div *dxTemplate>
+        <p>
+          Раздел Колледжи
+        </p>
+    </div>
+  </dxi-item>
+
+</dx-tab-panel>
+
