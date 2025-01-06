@@ -1,6 +1,7 @@
 package service;
 
 
+import model.ExcelConvertorModel;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -19,12 +20,12 @@ public class ExcelConvertorCoreService {
 
     private ExcelConvertorService excelConvertorService;
 
-    public byte[] exportCashPlanYearToExcel(HashMap<String,Object> params,List<?> data) throws IOException {
-        return excelConvertorService.convertDataToExcel(findFile(PATH_EXCEL_PATTERN_CASH_PLAN_YEAR),data,"");
+    public byte[] exportCashPlanYearToExcel(ExcelConvertorModel excelConvertorModel) throws IOException {
+        return excelConvertorService.convertDataToExcel(findFile(PATH_EXCEL_PATTERN_CASH_PLAN_YEAR),excelConvertorModel.getData(),"");
     }
 
-    public byte[] exportCashPlanBpToExcel(HashMap<String,Object> params,List<?> data) throws IOException{
-        return excelConvertorService.convertDataToExcel(findFile(PATH_EXCEL_PATTERN_CASH_PLAN_YEAR),data,"");
+    public byte[] exportCashPlanBpToExcel(ExcelConvertorModel excelConvertorModel) throws IOException{
+        return excelConvertorService.convertDataToExcel(findFile(PATH_EXCEL_PATTERN_CASH_PLAN_YEAR),excelConvertorModel.getData(),"");
     }
 
     private InputStream findFile(String filePath){

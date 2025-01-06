@@ -1,12 +1,14 @@
 
 <h1>Тестовый проект для работы !</h1>
 
-<dx-data-grid
-  [dataSource]="dataSource"
-  [columns]="columns">
-</dx-data-grid>
+<p-toolbar>
+  <div style="gap: 10px;" class="p-toolbar-group-start">
+    <p-button icon="pi pi-refresh" label="Обновить"  class="btn btn-primary"></p-button>
+    <p-button label="Экспорт отчёта в Excel" class="btn btn-primary"></p-button>
+  </div>
+</p-toolbar>
 
-<dx-tab-panel [width]="'100%'" [selectedIndex]="selectedIndex"
+<dx-tab-panel [width]="'100%'" [height]="'100%'" [selectedIndex]="selectedIndex"
               (onSelectionChanged)="onTabChanged($event)">
 
   <dxi-item title="Кассовый прогноз БП за год">
@@ -14,6 +16,10 @@
       <p>
         Раздел Кассовый прогноз БП за год
       </p>
+      <dx-data-grid
+        [dataSource]="dataGridCashPlanBp.data"
+        [columns]="dataGridCashPlanBp.columns">
+      </dx-data-grid>
     </div>
   </dxi-item>
   <dxi-item title="Кассовый прогноз за год">
@@ -21,6 +27,10 @@
       <p>
         Раздел Кассовый прогноз за год
       </p>
+      <dx-data-grid
+        [dataSource]="dataGridCashPlanYear.data"
+        [columns]="dataGridCashPlanYear.columns">
+      </dx-data-grid>
     </div>
   </dxi-item>
   <dxi-item title="Колледжи">
@@ -28,6 +38,10 @@
         <p>
           Раздел Колледжи
         </p>
+      <dx-data-grid
+        [dataSource]="dataGridCashPlanCollege.data"
+        [columns]="dataGridCashPlanCollege.columns">
+      </dx-data-grid>
     </div>
   </dxi-item>
 

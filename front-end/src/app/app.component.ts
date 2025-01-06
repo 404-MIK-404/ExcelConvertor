@@ -1,5 +1,10 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Subscription} from "rxjs";
+import {DataGridReportModel} from "./model/datagrid-report.model";
+import {cashPlanBpColumn} from "./column/cash-plan-bp.column";
+import {cashPlanYearColumn} from "./column/cash-plan-year.column";
+import {cashPlanCollegeColumn} from "./column/cash-plan-college.column";
+import DevExpress from "devextreme";
 
 @Component({
   selector: 'app-root',
@@ -11,6 +16,12 @@ export class AppComponent implements OnInit, OnDestroy {
   public selectedIndex = 0;
 
   private events = new Subscription();
+
+  public dataGridCashPlanBp: DataGridReportModel  = new DataGridReportModel([],cashPlanBpColumn)
+
+  public dataGridCashPlanYear: DataGridReportModel = new DataGridReportModel([],cashPlanYearColumn)
+
+  public dataGridCashPlanCollege: DataGridReportModel = new DataGridReportModel([],cashPlanCollegeColumn)
 
   dataSource = [
     { id: 1, name: 'John', age: 30 },
@@ -36,6 +47,15 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    let columnCollege: DevExpress.ui.dxDataGrid.Column[] = JSON.parse(JSON.stringify(this.dataGridCashPlanCollege.columns))
+    Array.from(['149 0704 02 4 02 90059 242','111 1111 11 1 11 11111 111','149 0704 02 4 02 90071 247','149 0704 02 4 02 90071 244']).forEach((kbk: string)=>{
+      columnCollege.push(  {
+        dataField: kbk,
+        caption: kbk,
+        allowSorting: true,
+      },)
+    })
+    this.dataGridCashPlanCollege.columns = columnCollege
   }
 
 
