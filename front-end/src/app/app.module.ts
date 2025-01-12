@@ -6,6 +6,7 @@ import {DxDataGridModule, DxTabPanelModule} from "devextreme-angular";
 import {ToolbarModule} from "primeng/toolbar";
 import {ButtonModule} from "primeng/button";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {SidebarModule} from "primeng/sidebar";
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     BrowserAnimationsModule,
     ToolbarModule,
     ButtonModule,
+    SidebarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,6 @@
 HELP.md
 target/
+bs-excel-core/src/main/resources/excel
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/

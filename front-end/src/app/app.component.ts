@@ -1,10 +1,11 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {Subscription} from "rxjs";
 import {DataGridReportModel} from "./model/datagrid-report.model";
 import {cashPlanBpColumn} from "./column/cash-plan-bp.column";
 import {cashPlanYearColumn} from "./column/cash-plan-year.column";
 import {cashPlanCollegeColumn} from "./column/cash-plan-college.column";
 import DevExpress from "devextreme";
+import {Sidebar, SidebarModule} from "primeng/sidebar";
 
 @Component({
   selector: 'app-root',
@@ -13,9 +14,11 @@ import DevExpress from "devextreme";
 })
 export class AppComponent implements OnInit, OnDestroy {
 
+  private events = new Subscription();
+
   public selectedIndex = 0;
 
-  private events = new Subscription();
+  public sidebarVisible: boolean = false
 
   public dataGridCashPlanBp: DataGridReportModel  = new DataGridReportModel([],cashPlanBpColumn)
 
@@ -56,6 +59,11 @@ export class AppComponent implements OnInit, OnDestroy {
       },)
     })
     this.dataGridCashPlanCollege.columns = columnCollege
+  }
+
+
+  public onClickVisibleSidebar(component: any){
+    this.sidebarVisible = !this.sidebarVisible
   }
 
 
