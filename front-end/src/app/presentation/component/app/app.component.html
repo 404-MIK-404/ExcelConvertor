@@ -1,0 +1,52 @@
+
+<h1>Тестовый проект для работы !</h1>
+
+<p-toolbar>
+  <div style="gap: 10px;" class="p-toolbar-group-start">
+    <p-button icon="pi pi-refresh" label="Обновить"  class="btn btn-primary"></p-button>
+    <p-button label="Экспорт отчёта в Excel" (click)="onClickVisibleSidebar(sidebarExcelConvertor)" class="btn btn-primary"></p-button>
+  </div>
+</p-toolbar>
+
+<dx-tab-panel [width]="'100%'" [height]="'100%'" [selectedIndex]="selectedIndex"
+              (onSelectionChanged)="onTabChanged($event)">
+
+  <dxi-item title="Кассовый прогноз БП за год">
+    <div *dxTemplate>
+      <dx-data-grid
+        [dataSource]="dataGridApp.data"
+        [columns]="dataGridApp.columns">
+      </dx-data-grid>
+    </div>
+  </dxi-item>
+  <dxi-item title="Кассовый прогноз за год">
+    <div *dxTemplate>
+      <dx-data-grid
+        [dataSource]="dataGridApp.data"
+        [columns]="dataGridApp.columns">
+      </dx-data-grid>
+    </div>
+  </dxi-item>
+  <dxi-item title="Колледжи">
+    <div *dxTemplate>
+      <dx-data-grid
+        [dataSource]="dataGridApp.data"
+        [columns]="dataGridApp.columns">
+      </dx-data-grid>
+    </div>
+  </dxi-item>
+
+</dx-tab-panel>
+
+
+
+<p-sidebar #sidebarExcelConvertor [(visible)]="sidebarVisible" [dismissible]="false" styleClass="w-30" [position]="'left'">
+  <ng-template pTemplate="header"><h3>Экспорт данных в Excel</h3></ng-template>
+  <ng-template pTemplate="content">Body Content</ng-template>
+  <ng-template pTemplate="footer">
+    <div style="display: flex; flex-direction: row; gap: 10px;">
+      <p-button label="Закрыть"  (click)="onClickVisibleSidebar(sidebarExcelConvertor)"></p-button>
+      <p-button label="Экспортировать"></p-button>
+    </div>
+  </ng-template>
+</p-sidebar>

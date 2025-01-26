@@ -1,25 +1,12 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 
-import { AppComponent } from './app.component';
-import {DxDataGridModule, DxTabPanelModule} from "devextreme-angular";
-import {ToolbarModule} from "primeng/toolbar";
-import {ButtonModule} from "primeng/button";
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {SidebarModule} from "primeng/sidebar";
+import { AppComponent } from './presentation/component/app/app.component';
+import {AppPresentationModule} from "./presentation/app-presentation.module";
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [],
   imports: [
-    BrowserModule,
-    DxDataGridModule,
-    DxTabPanelModule,
-    BrowserAnimationsModule,
-    ToolbarModule,
-    ButtonModule,
-    SidebarModule,
+    AppPresentationModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
