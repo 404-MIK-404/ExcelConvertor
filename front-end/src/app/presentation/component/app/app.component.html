@@ -1,42 +1,104 @@
 
-<h1>Тестовый проект для работы !</h1>
-
-<p-toolbar>
-  <div style="gap: 10px;" class="p-toolbar-group-start">
-    <p-button icon="pi pi-refresh" label="Обновить"  class="btn btn-primary"></p-button>
-    <p-button label="Экспорт отчёта в Excel" (click)="onClickVisibleSidebar(sidebarExcelConvertor)" class="btn btn-primary"></p-button>
+<div class="d-flex flex-column" style="height: 100vh;">
+  <div class="p-2"><h1>Тестовый проект для работы !</h1></div>
+  <div>
+     <p-toolbar>
+        <div style="gap: 10px;" class="p-toolbar-group-start">
+          <p-button icon="pi pi-refresh" label="Обновить"></p-button>
+          <p-button label="Экспорт отчёта в Excel"></p-button>
+          <p-button label="Опция отчёта" (click)="onClickVisibleSidebar(sidebarExcelConvertor)"></p-button>
+        </div>
+      </p-toolbar>
   </div>
-</p-toolbar>
 
-<dx-tab-panel [width]="'100%'" [height]="'100%'" [selectedIndex]="selectedIndex"
-              (onSelectionChanged)="onTabChanged($event)">
 
-  <dxi-item title="Кассовый прогноз БП за год">
-    <div *dxTemplate>
-      <dx-data-grid
-        [dataSource]="dataGridApp.data"
-        [columns]="dataGridApp.columns">
-      </dx-data-grid>
-    </div>
-  </dxi-item>
-  <dxi-item title="Кассовый прогноз за год">
-    <div *dxTemplate>
-      <dx-data-grid
-        [dataSource]="dataGridApp.data"
-        [columns]="dataGridApp.columns">
-      </dx-data-grid>
-    </div>
-  </dxi-item>
-  <dxi-item title="Колледжи">
-    <div *dxTemplate>
-      <dx-data-grid
-        [dataSource]="dataGridApp.data"
-        [columns]="dataGridApp.columns">
-      </dx-data-grid>
-    </div>
-  </dxi-item>
+  <div style="display: flex;min-height: 0%;" class="flex-grow-1">
 
-</dx-tab-panel>
+    <dx-tab-panel [width]="'100%'" [selectedIndex]="selectedIndex"
+                  (onSelectionChanged)="onTabChanged($event)">
+
+      <dxi-item title="Кассовый прогноз БП за год">
+        <div style="overflow: hidden" *dxTemplate>
+          <div style="display: flex; flex-direction: row; height: 100%">
+            <div style="overflow: hidden">
+              <dx-data-grid width="100%" height="100%"
+                            [columnMinWidth]="50" [wordWrapEnabled]="true"
+                            [columnResizingMode]="'widget'"
+                            [columnAutoWidth]="true"
+                            [dataSource]="dataGridApp.data"
+                            [showBorders]="true"
+                            [columns]="dataGridApp.columns">
+
+                <dxo-scrolling  showScrollbar="always" mode="virtual"></dxo-scrolling>
+                <dxo-column-fixing [enabled]="true"></dxo-column-fixing>
+                <dxo-sorting mode="single"></dxo-sorting>
+                <dxo-load-panel [enabled]="true"> </dxo-load-panel>
+                <dxo-group-panel [visible]="false"></dxo-group-panel>
+                <dxo-selection mode="single"></dxo-selection>
+                <dxo-filter-row [visible]="true"></dxo-filter-row>
+                <dxo-header-filter [visible]="true"></dxo-header-filter>
+
+              </dx-data-grid>
+            </div>
+          </div>
+        </div>
+      </dxi-item>
+      <dxi-item title="Кассовый прогноз за год">
+        <div *dxTemplate>
+          <div style="display: grid;grid-template-columns: auto;grid-template-rows: 1fr auto;" class="h-100">
+            <div style="overflow: hidden">
+              <dx-data-grid height="100%" width="100%"
+                            [columnMinWidth]="50" [wordWrapEnabled]="true"
+                            [columnResizingMode]="'widget'"
+                            [columnAutoWidth]="true"
+                            [dataSource]="dataGridApp.data"
+                            [showBorders]="true"
+                            [columns]="dataGridApp.columns">
+
+                <dxo-scrolling  showScrollbar="always" mode="virtual"></dxo-scrolling>
+                <dxo-column-fixing [enabled]="true"></dxo-column-fixing>
+                <dxo-sorting mode="single"></dxo-sorting>
+                <dxo-load-panel [enabled]="true"> </dxo-load-panel>
+                <dxo-group-panel [visible]="false"></dxo-group-panel>
+                <dxo-selection mode="single"></dxo-selection>
+                <dxo-filter-row [visible]="true"></dxo-filter-row>
+                <dxo-header-filter [visible]="true"></dxo-header-filter>
+
+              </dx-data-grid>
+            </div>
+          </div>
+        </div>
+      </dxi-item>
+      <dxi-item title="Колледжи">
+        <div *dxTemplate>
+          <div style="display: grid;grid-template-columns: auto;grid-template-rows: 1fr auto;" class="h-100">
+            <div style="overflow: hidden">
+              <dx-data-grid height="100%" width="100%"
+                            [columnMinWidth]="50" [wordWrapEnabled]="true"
+                            [columnResizingMode]="'widget'"
+                            [columnAutoWidth]="true"
+                            [dataSource]="dataGridApp.data"
+                            [showBorders]="true"
+                            [columns]="dataGridApp.columns">
+
+                <dxo-scrolling showScrollbar="always" mode="virtual"></dxo-scrolling>
+                <dxo-column-fixing [enabled]="true"></dxo-column-fixing>
+                <dxo-sorting mode="single"></dxo-sorting>
+                <dxo-load-panel [enabled]="true"> </dxo-load-panel>
+                <dxo-group-panel [visible]="false"></dxo-group-panel>
+                <dxo-selection mode="single"></dxo-selection>
+                <dxo-filter-row [visible]="true"></dxo-filter-row>
+                <dxo-header-filter [visible]="true"></dxo-header-filter>
+
+              </dx-data-grid>
+            </div>
+          </div>
+        </div>
+      </dxi-item>
+    </dx-tab-panel>
+  </div>
+</div>
+
 
 
 

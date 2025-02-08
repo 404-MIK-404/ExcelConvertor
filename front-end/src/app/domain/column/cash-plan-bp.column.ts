@@ -10,7 +10,6 @@ export const cashPlanBpColumn: DevExpress.ui.dxDataGrid.Column[] = [
     allowSorting: true,
     groupCellTemplate: 'nameBpLboGroupTemplate',
     calculateGroupValue: calculateGroupValue,
-    groupIndex: 0,
   },{
     dataField: 'codePBS',
     caption: 'Бюджетополучатель',
@@ -20,7 +19,6 @@ export const cashPlanBpColumn: DevExpress.ui.dxDataGrid.Column[] = [
     caption: 'Департамент',
     allowSorting: true,
     groupCellTemplate: 'nameBpLboGroupTemplate',
-    groupIndex: 1,
   },{
     dataField: 'codeSection',
     caption: 'Раздел',
