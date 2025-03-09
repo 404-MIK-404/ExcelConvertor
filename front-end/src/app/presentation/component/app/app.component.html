@@ -1,18 +1,10 @@
 
 <div class="d-flex flex-column" style="height: 100vh;">
   <div class="p-2"><h1>Тестовый проект для работы !</h1></div>
-  <div>
-     <p-toolbar>
-        <div style="gap: 10px;" class="p-toolbar-group-start">
-          <p-button icon="pi pi-refresh" label="Обновить"></p-button>
-          <p-button label="Экспорт отчёта в Excel"></p-button>
-          <p-button label="Опция отчёта" (click)="onClickVisibleSidebar(sidebarExcelConvertor)"></p-button>
-        </div>
-      </p-toolbar>
-  </div>
 
+  <lib-bs-report></lib-bs-report>
 
-  <div style="display: flex;min-height: 0%;" class="flex-grow-1">
+  <div style="display: flex;min-height: 0;" class="flex-grow-1">
 
     <dx-tab-panel [width]="'100%'" [selectedIndex]="selectedIndex"
                   (onSelectionChanged)="onTabChanged($event)">
@@ -98,17 +90,3 @@
     </dx-tab-panel>
   </div>
 </div>
-
-
-
-
-<p-sidebar #sidebarExcelConvertor [(visible)]="sidebarVisible" [dismissible]="false" styleClass="w-30" [position]="'left'">
-  <ng-template pTemplate="header"><h3>Экспорт данных в Excel</h3></ng-template>
-  <ng-template pTemplate="content">Body Content</ng-template>
-  <ng-template pTemplate="footer">
-    <div style="display: flex; flex-direction: row; gap: 10px;">
-      <p-button label="Закрыть"  (click)="onClickVisibleSidebar(sidebarExcelConvertor)"></p-button>
-      <p-button label="Экспортировать"></p-button>
-    </div>
-  </ng-template>
-</p-sidebar>

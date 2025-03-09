@@ -9,6 +9,7 @@ import {ToolbarModule} from "primeng/toolbar";
 import {ButtonModule} from "primeng/button";
 import {SidebarModule} from "primeng/sidebar";
 import {HttpClientModule} from "@angular/common/http";
+import {LibBsReportModule} from "@404-mik-404/lib-bs-report";
 
 @NgModule({
   imports: [
@@ -21,16 +22,20 @@ import {HttpClientModule} from "@angular/common/http";
     SidebarModule,
     HttpClientModule,
 
+    LibBsReportModule,
+
     AppDomainModule,
     AppDataModule,
   ],
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   exports: [
     AppComponent
   ],
-  providers: [],
+  providers: [
+
+  ],
 })
 export class AppPresentationModule {
 

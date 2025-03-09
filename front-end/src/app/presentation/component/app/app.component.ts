@@ -3,6 +3,7 @@ import {Subscription} from "rxjs";
 import DevExpress from "devextreme";
 import {DataGridStateModel} from "../../../domain/model/datagrid-state.model";
 import {AppViewModel} from "../../viewmodel/app.viewmodel";
+import {LibBsReportService} from "@404-mik-404/lib-bs-report";
 
 @Component({
   selector: 'app-root',
@@ -22,7 +23,8 @@ export class AppComponent implements OnInit, OnDestroy {
     columns: [],
   }
 
-  constructor(private appViewModel :AppViewModel) {}
+  constructor(private appViewModel :AppViewModel,
+              private libBsReportService: LibBsReportService) {}
 
 
   public onTabChanged(e: any) {
@@ -35,6 +37,15 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.libBsReportService.onClickRefreshButton$.subscribe(()=>{
+      console.log("Refresh Click !")
+    })
+    this.libBsReportService.onClickConvertExcelButton$.subscribe(()=>{
+      console.log("Excel Convertor click !")
+    })
+    this.libBsReportService.onChangedSelectionReportDate$.subscribe(onSelectDateReport=>{
+      console.log("Выбрал такую дату !" + onSelectDateReport.displayDate)
+    })
     this.loadTestDataAndColumnsBySelectedIndexTabPanel()
   }
 
@@ -57,6 +68,7 @@ export class AppComponent implements OnInit, OnDestroy {
         this.pushColumnsForCollege()
         break
     }
+    //this.libBsReportService.onLoadColumnReport(this.dataGridApp.columns)
   }
 
   private pushColumnsForCollege(){
